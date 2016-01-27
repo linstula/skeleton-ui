@@ -1,0 +1,16 @@
+{{#skeleton-ui promise=model as |sui|}}
+  {{#sui.resolved as |items|}}
+    <strong>Resolve</strong>
+    <ul>
+      {{#each items as |item|}}
+        <li>{{item.content}}</li>
+      {{/each}}
+    </ul>
+  {{/sui.resolved}}
+  {{#sui.rejected as |reason|}}
+    <strong> OH NOSE! {{reason}}</strong>
+  {{/sui.rejected}}
+  {{#sui.unresolved}}
+    <strong>Looking for your things</strong>
+  {{/sui.unresolved}}
+{{/skeleton-ui}}
